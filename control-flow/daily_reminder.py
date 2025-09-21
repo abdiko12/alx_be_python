@@ -1,5 +1,6 @@
 #fifth project
 
+
 # daily_reminder.py
 
 # Prompt for user input
@@ -10,20 +11,62 @@ time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 # Process the task using match-case
 match priority:
     case "high":
-        reminder = f"Reminder: '{task}' is a high priority task"
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
+        else:
+            print(f"Reminder: '{task}' is a high priority task. Consider completing it when you have free time.")
     case "medium":
-        reminder = f"Note: '{task}' is a medium priority task"
+        if time_bound == "yes":
+            print(f"Note: '{task}' is a medium priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a medium priority task. Consider completing it when you have free time.")
     case "low":
-        reminder = f"Note: '{task}' is a low priority task"
+        if time_bound == "yes":
+            print(f"Note: '{task}' is a low priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
     case _:
-        reminder = f"'{task}' has an unknown priority level"
-
-# Modify reminder based on time sensitivity
-if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
-else:
-    reminder += ". Consider completing it when you have free time."
-
-# Display the customized reminder
-print(reminder)
+        print(f"'{task}' has an unknown priority level. Please check your input.")
 #end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                               [ Read 29 lines ]
+^G Help           ^O Write Out      ^F Where Is       ^K Cut            ^T Execute        ^C Location       M-U Undo          M-A Set Mark      M-] To Bracket    M-B Previous      ◂ Back            ^◂ Prev Word      ^A Home           ^P Prev Line      M-▴ Scroll Up
+^X Exit           ^R Read File      ^\ Replace        ^U Paste          ^J Justify        ^/ Go To Line     M-E Redo          M-6 Copy          ^B Where Was      M-F Next          ▸ Forward         ^▸ Next Word      ^E End            ^N Next Line      M-▾ Scroll Down
+
