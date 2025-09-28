@@ -6,6 +6,7 @@ A simple command-line program to manage a shopping list.
 """
 
 def display_menu():
+    """Print the menu options for the Shopping List Manager."""
     print("\nShopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
@@ -16,11 +17,10 @@ def main():
     shopping_list = []
 
     while True:
-        display_menu()
+        display_menu()  # call to the defined display_menu
         choice = input("Enter your choice: ").strip()
 
         if choice == '1':
-            # Prompt for and add an item
             item = input("Enter the item to add: ").strip()
             if item:
                 shopping_list.append(item)
@@ -29,7 +29,6 @@ def main():
                 print("No item entered. Nothing added.")
 
         elif choice == '2':
-            # Prompt for and remove an item
             if not shopping_list:
                 print("The shopping list is empty. Nothing to remove.")
                 continue
@@ -42,7 +41,6 @@ def main():
                 print(f'"{item}" is not in the shopping list.')
 
         elif choice == '3':
-            # Display the shopping list
             if shopping_list:
                 print("\nCurrent Shopping List:")
                 for idx, item in enumerate(shopping_list, start=1):
