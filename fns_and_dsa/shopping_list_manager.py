@@ -1,8 +1,7 @@
-#second
 """
 shopping_list_manager.py
 
-A simple command-line program to manage a shopping list.
+Simple command-line shopping list manager.
 """
 
 def display_menu():
@@ -57,4 +56,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-#end
