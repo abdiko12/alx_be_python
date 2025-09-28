@@ -1,31 +1,22 @@
-"""
-temp_conversion_tool.py
+import inspect
+from temp_conversion_tool import main
 
-Temperature conversion tool using global conversion factors.
-"""
+def test_user_interaction():
+    # Check if the main function exists
+    assert 'main' in globals(), "Function main does not exist."
 
-# Global conversion factors (match checker’s expected pattern exactly)
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
+    # Check if it is a function
+    assert inspect.isfunction(main), "main is not a function."
 
+    # Check for user prompt in the main function
+    with open('temp_conversion_tool.py', 'r') as file:
+        content = file.read()
 
-def convert_to_celsius(fahrenheit):
-    """Convert Fahrenheit to Celsius using the global conversion factor."""
-    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    assert "Is this temperature in Celsius or Fahrenheit? (C/F):" in content, 
+        "User prompt for temperature unit is missing."
 
+    print("All checks passed.")
 
-def convert_to_fahrenheit(celsius):
-    """Convert Celsius to Fahrenheit using the global conversion factor."""
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+if __name__ == "__main__":
+    test_user_interaction()
 
-
-def main():
-    """Prompt user for input and perform temperature conversion."""
-    temp_input = input("Enter the temperature to convert: ").strip()
-
-    try:
-        temperature = float(temp_input)
-    except ValueError:
-        raise ValueError("Invalid temperature. Please enter a numeric value.")
-
-    unit = input("Is this temperature in Celsius or Fahrenheit? (
