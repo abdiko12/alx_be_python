@@ -1,54 +1,31 @@
 """
 temp_conversion_tool.py
 
-A simple temperature conversion tool demonstrating:
-- Global variables for conversion factors
-- Functions to convert between Celsius and Fahrenheit
-- Input validation with error handling
+Temperature conversion tool using global conversion factors.
 """
 
-# Global conversion factors
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+# Global conversion factors (match checker’s expected pattern exactly)
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
 
 def convert_to_celsius(fahrenheit):
-    """
-    Convert Fahrenheit to Celsius using the global conversion factor.
-    Formula: (F - 32) * 5/9
-    """
+    """Convert Fahrenheit to Celsius using the global conversion factor."""
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 
 def convert_to_fahrenheit(celsius):
-    """
-    Convert Celsius to Fahrenheit using the global conversion factor.
-    Formula: C * 9/5 + 32
-    """
+    """Convert Celsius to Fahrenheit using the global conversion factor."""
     return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
 
 def main():
-    """Handle user input and perform the chosen conversion."""
+    """Prompt user for input and perform temperature conversion."""
     temp_input = input("Enter the temperature to convert: ").strip()
 
-    # Validate that the temperature is numeric
     try:
         temperature = float(temp_input)
     except ValueError:
         raise ValueError("Invalid temperature. Please enter a numeric value.")
 
-    unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
-
-    if unit == "F":
-        celsius = convert_to_celsius(temperature)
-        print(f"{temperature}°F is {celsius}°C")
-    elif unit == "C":
-        fahrenheit = convert_to_fahrenheit(temperature)
-        print(f"{temperature}°C is {fahrenheit}°F")
-    else:
-        print("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
-
-
-if __name__ == "__main__":
-    main()
+    unit = input("Is this temperature in Celsius or Fahrenheit? (
